@@ -1,6 +1,8 @@
 import React from 'react'
-import MapGL, {Marker, NavigationControl} from 'react-map-gl';
+import  {Marker} from 'react-map-gl';
 import {useSelector, useDispatch} from "react-redux";
+import shortid from "shortid";
+
 
 import Pin from '../Pin/pin'
 
@@ -44,7 +46,8 @@ const Markers = () => {
           draggable
           onDragStart={_onMarkerDragStart}
           onDragEnd={_onMarkerDragEnd}
-          id = {e.id}
+          
+          key={shortid.generate()}
         >
           <Pin size={20} />
         </Marker> 

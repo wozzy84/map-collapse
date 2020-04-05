@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import MapGL, {Marker, NavigationControl} from 'react-map-gl';
+import MapGL, { NavigationControl} from 'react-map-gl';
 import {useState} from 'react'
 
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import shortid from "shortid";
 import Markers from '../Markers/Markers'
 
@@ -17,8 +17,7 @@ const navStyle = {
 const Map = () => {
 
 const dispatch = useDispatch()
-const markers = useSelector (state=> state.markers)
-const [events, setEvents] =useState(null)
+
 
 const defaultViewport = {
   latitude: 37.785164,
@@ -30,43 +29,16 @@ const defaultViewport = {
 
 
 const [viewport, setViewport] = useState(defaultViewport) 
-const marker = {
-      latitude: 37.785164,
-      longitude: -100
-    };
+
 
 
   const _updateViewport = viewport => {
     setViewport(viewport);
   };
 
-  const _logDragEvent= (name, event) =>{
-    setEvents(
-      { ...events,
-        [name]: event.lngLat
-      }
-   );
-  }
 
-  const _onMarkerDragStart = event => {
-    _logDragEvent('onDragStart', event);
-  };
+  
 
-  const _onMarkerDrag = event => {
- _logDragEvent('onDrag', event);
-  };
-
- const  _onMarkerDragEnd = event => {
-    _logDragEvent('onDragEnd', event);
-    // this.setState({
-    //   marker: {
-    //     longitude: event.lngLat[0],
-    //     latitude: event.lngLat[1]
-    //   }
-    // });
-
-    console.log(event.lngLat[0])
-  };
 
   const _handleClick = (e) => {
     console.log(e.lngLat)
