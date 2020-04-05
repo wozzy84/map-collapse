@@ -12,9 +12,15 @@ function handleMarkers(state = [], action) {
           e.coordinates[0].toFixed(4) === action.payload.start[0].toFixed(4)
       );
       if (dragedMarker[0]) {
-        const filteredState = state.filter(e => e.id !== dragedMarker[0].id);
-        dragedMarker[0].coordinates = action.payload.end;
-        return [...filteredState, dragedMarker[0]];
+        const newState = state.map(element => {
+          if (element.id === dragedMarker[0].id) {
+            return {
+              ...element,
+              coordinates: action.payload.end
+            };
+          } else return element;
+        });
+        return newState;
       } else return state;
     default:
       return state;
