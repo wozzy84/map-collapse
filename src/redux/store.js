@@ -1,9 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import logger from "redux-logger";
-import {handleMarkers} from './reducers'
+import {handleMarkers, handleDrag} from './reducers'
 
 const reducers = combineReducers({
-  markers: handleMarkers
+  markers: handleMarkers,
+  draggedMarker: handleDrag
 });
 
 //store

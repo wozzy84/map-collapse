@@ -17,7 +17,7 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import App from 'components/App'
+import App from './components/App/App'
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 // styles for this kit

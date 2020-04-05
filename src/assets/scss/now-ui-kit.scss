@@ -61,4 +61,10 @@
 @import "now-ui-kit/responsive";
 
 // React
-@import "react/react-differences"
+@import "react/react-differences";
+
+// My Project
+@import '../../components/App/App.scss';
+@import '../../components/Accordion/Accordion.scss'
+
+
